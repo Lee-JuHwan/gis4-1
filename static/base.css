@@ -15,3 +15,11 @@
 .pragmatic_footer_button {
     margin-bottom: 2rem;
 }
+
+.btn{
+    background-color: aquamarine;
+    border-radius: 1rem;
+}
+
+.btn-outline-dark {
+}
