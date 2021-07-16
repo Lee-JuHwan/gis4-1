@@ -16,10 +16,7 @@
     margin-bottom: 2rem;
 }
 
-.btn{
-    background-color: aquamarine;
-    border-radius: 1rem;
-}
-
-.btn-outline-dark {
+.mw_500 {
+    max-width: 500px;
+    padding: 1rem 1.5rem;
 }
