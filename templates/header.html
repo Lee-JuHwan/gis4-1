@@ -25,6 +25,11 @@
                 Log-Out
             </a>
         </span>
+        <span style="margin: 0.1rem">
+            <a href="{% url 'accountapp:detail' pk=user.pk %}" >
+                My Page
+            </a>
+        </span>
         {% endif %}
 
     </div>
