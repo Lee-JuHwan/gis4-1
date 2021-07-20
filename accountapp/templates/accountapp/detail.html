@@ -10,9 +10,12 @@
         <div>
             {{ target_user.date_joined }}
         </div>
-        <div>
-            <a href= "{% url 'accountapp:update' pk=target_user.pk %}">
+        <div style="margin: 1.5rem">
+            <a href= "{% url 'accountapp:update' pk=target_user.pk %}" style="margin: 0.5rem">
                 REVISE
+            </a>
+            <a href= "{% url 'accountapp:delete' pk=target_user.pk %}" style="margin: 0.5rem">
+                DELETE
             </a>
         </div>
     </div>
