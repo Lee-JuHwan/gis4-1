@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
 
-{% block content%}
+{% block content %}
 
     <div class="text-center mw_500 m-auto">
         <div class="m-5">
@@ -11,7 +11,7 @@
             {{ target_user.date_joined }}
         </div>
         <div>
-            <a button = {% url 'accountapp:update' pk=target_user.pk %}>
+            <a href= "{% url 'accountapp:update' pk=target_user.pk %}">
                 REVISE
             </a>
         </div>
