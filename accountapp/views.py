@@ -51,16 +51,17 @@ class AccountUpdateView(UpdateView):
     template_name = 'accountapp/update.html'
 
     def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return super().get(self, *args, **kwargs)
+        if request.user.is_authenticated and self.get_object() == request.user:
+            return super().get(request, *args, **kwargs)
+        else:
+            return HttpResponseForbidden()
+
+    def post(self, request, *args, **kwargs):
+        if request.user.is_authenticated and self.get_object() == request.user:
+            return super().post(request, *args, **kwargs)
         else:
             return HttpResponseRedirect(reverse('accountapp:login'))
 
-    def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return super().post(self, *args, **kwargs)
-        else:
-            return HttpResponseRedirect(reverse('accountapp:login'))
 
 class AccountDeleteView(DeleteView):
     model = User
@@ -68,14 +69,15 @@ class AccountDeleteView(DeleteView):
     success_url = reverse_lazy('accountapp:hello_world')
     template_name = 'accountapp/delete.html'
 
+
     def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return super().get(self, *args, **kwargs)
+        if request.user.is_authenticated and self.get_object() == request.user:
+            return super().get(request, *args, **kwargs)
         else:
-            return HttpResponseRedirect(reverse('accountapp:login'))
+            return HttpResponseForbidden()
 
     def post(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return super().post(self, *args, **kwargs)
+        if request.user.is_authenticated and self.get_object() == request.user:
+            return super().post(request, *args, **kwargs)
         else:
             return HttpResponseRedirect(reverse('accountapp:login'))
