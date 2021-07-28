@@ -1,12 +1,17 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views.generic import CreateView
 
+from profileapp.decorators import profile_owership_required
 from profileapp.forms import ProfileCreationForm
 from profileapp.models import Profile
 
+@method_decorator(login_required, 'get')
+@method_decorator(login_required, 'get')
 class ProfileCreateView(CreateView):
     model = Profile
     form_class = ProfileCreationForm
@@ -17,7 +22,8 @@ class ProfileCreateView(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-
+@method_decorator(profile_owership_required, 'get')
+@method_decorator(profile_owership_required, 'post')
 class ProfileUpdateView(CreateView):
     model = Profile
     form_class = ProfileCreationForm
