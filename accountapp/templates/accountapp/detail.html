@@ -35,12 +35,14 @@
 
         {% if user == target_user %}
 
-        <div style="margin: 1.5rem">
-            <a href= "{% url 'accountapp:update' pk=target_user.pk %}" style="margin: 0.5rem">
-                REVISE
+        <div>
+            <a href= "{% url 'accountapp:update' pk=target_user.pk %}"
+                    class="material-icons mx-1 round_button">
+                settings
             </a>
-            <a href= "{% url 'accountapp:delete' pk=target_user.pk %}" style="margin: 0.5rem">
-                DELETE
+            <a href= "{% url 'accountapp:delete' pk=target_user.pk %}"
+                    class="material-icons mx-1 round_button">
+                close
             </a>
         </div>
 

@@ -36,7 +36,7 @@
 .round_button {
     color: black;
     text-decoration: none;
-    border-radius: 0.01rem;
+    border-radius: 0.5rem;
     box-shadow: 0 0 3px black;
     padding: 0.3rem;
 }
