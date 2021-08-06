@@ -21,7 +21,7 @@
 
     </style>
 
-    <div class="container" my-4>
+    <div class="container my-4">
 
         {% for article in article_list %}
             <div>
@@ -41,5 +41,17 @@
     <script src="{% static 'js/magicgrid.js' %}"></script>
 
     {% include 'snippets/pagination.html' %}
+
+    <div>
+        <a href="{% url 'articleapp:create' %}"
+           class="btn btn-dark rounded-pill material-icons">
+            brush
+        </a>
+        <a href="{% url 'articleapp:create' %}"
+           class="btn btn-outline-dark rounded-pill px-5">
+            Create Article
+        </a>
+
+    </div>
 
 {% endblock %}
