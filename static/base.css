@@ -55,3 +55,12 @@
     width: 65%;
     box-shadow: 0 0 1rem grey;
 }
+
+.comment_box {
+    text-align: left;
+    border-bottom: solid;
+    border-color: darkgray;
+    margin: 1rem;
+    padding: 1rem;
+
+}
