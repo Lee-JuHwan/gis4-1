@@ -10,7 +10,11 @@
             </a>
         </span>
 
-        <span style="margin: 0.1rem">nav2</span>
+        <span style="margin: 0.1rem">
+            <a href="{% url 'projectapp:list' %}">
+                Projects
+            </a>
+        </span>
 
         {% if not user.is_authenticated %}
         <span style="margin: 0.1rem">
