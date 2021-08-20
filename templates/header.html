@@ -16,6 +16,14 @@
             </a>
         </span>
 
+        {% if user.is_authenticated %}
+        <span style="margin: 0.1rem">
+            <a href="{% url 'subscribeapp:list' %}">
+                Subscribe
+            </a>
+        </span>
+        {% endif %}
+
         {% if not user.is_authenticated %}
         <span style="margin: 0.1rem">
             <a href="{% url 'accountapp:login' %}">
