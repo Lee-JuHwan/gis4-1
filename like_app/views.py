@@ -21,6 +21,7 @@ class LikeArticleView(RedirectView):
         like_record = LikeRecord.objects.filter(user=user, article=article)
 
         if like_record.exists(): ## 좋아요 기록이 있을 경우, 즉 좋아요 반영 X
+            messages.add_message(request, messages.ERROR, '이미 좋아요를 눌렀습니다')
             return HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk': kwargs['article_pk']}))
         else:
             LikeRecord(user=user, article=article).save()
@@ -28,6 +29,7 @@ class LikeArticleView(RedirectView):
         article.like += 1
         article.save()
 
+        messages.add_message(request, messages.SUCCESS, '좋아요가 반영되었습니다')
         return super().get(request, *args, **kwargs)
 
     def get_redirect_url(self, *args, **kwargs):
