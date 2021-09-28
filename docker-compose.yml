@@ -25,6 +25,9 @@ services:
       - gis_4_1_static:/home/gis4-1/staticfiles/
       - gis_4_1_media:/home/gis4-1/media/
 
+    secrets:
+      - DJANGO_SECRET_KEY
+
   mariadb:
     image: mariadb:10.5
 
@@ -48,3 +51,7 @@ volumes:
   gis_4_1_static:
   gis_4_1_media:
   gis_4_1_mariadb:
+
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
