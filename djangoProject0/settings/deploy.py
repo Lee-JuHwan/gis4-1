@@ -5,7 +5,7 @@ def read_secret(secret_name):
     secret = file.read()
     secret = secret.lstrip().rstrip()
     file.close()
-    return
+    return secret
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
