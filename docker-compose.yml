@@ -27,6 +27,8 @@ services:
 
     secrets:
       - DJANGO_SECRET_KEY
+      - MARIADB_USER
+      - MARIADB_PASSWORD
 
   mariadb:
     image: mariadb:10.5
@@ -36,6 +38,12 @@ services:
 
     volumes:
       - gis_4_1_mariadb:/var/lib/mysql
+
+    secrets:
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_DATABASE
+      - MARIADB_USER
+      - MARIADB_PASSWORD
 
     environment:
       MARIADB_ROOT_PASSWORD: password1234
