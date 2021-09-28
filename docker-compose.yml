@@ -16,7 +16,7 @@ services:
       - gis_4_1_media:/data/media
 
   django:
-    image: gis_4_1_django:1.0.3
+    image: gis_4_1_django:1.0.4
 
     networks:
       - gis_4_1_network
